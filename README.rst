@@ -8,6 +8,22 @@ password along with the domain name of the site you're visiting to create a
 random password.
 
 
+Installation
+------------
+You can download the latest from the `releases/`_ directory or via the `GitHub
+Downloads`_ page for this project.  Once downloaded, double-click to install.
+
+
+Setup Safari for Extensions
+"""""""""""""""""""""""""""
+This only needs to be done once.
+
+* Click Safari > Preferences...
+* Click Advanced > Check "Show Develop menu in menu bar"
+* Click Develop > Enable Extensions
+
+
+
 License and Credit
 ------------------
 The is licensed under the BSD as it makes heavy use of other code which has
@@ -26,4 +42,5 @@ This uses a lock icon from the amazing `Gylpish`_ icon set.
 .. _Nic Wolfe's: http://angel.net/~nic/
 .. _password generator: http://angel.net/~nic/passwd.sha1.1a.html
 .. _Gylpish: http://glyphish.com/
-
+.. _releases/: http://github.com/tswicegood/safari-password-generator/tree/master/releases/
+.. _GitHub Downloads: http://github.com/tswicegood/safari-password-generator/downloads
