@@ -121,9 +121,9 @@ function getDomain(url) {
     return rootDomain[1];
 }
 
-function generatePassword(domain, master) {
+function generatePassword(event) {
     var trailingStr = "1a!";
-    password.value = b64_sha1(domain + ':' + master).substr(0,8) + trailingStr;
+    return b64_sha1(event.message.master + ':' + event.message.site).substr(0,8) + trailingStr;
 }
 
 // END CODE BORROWED FROM Password Generator
@@ -139,15 +139,26 @@ function performCommand(event) {
     console.debug(currentURL);
 
     var modalCss = document.getElementById("passwordDialogCSS").textContent;
+    var dialogHTML = document.getElementById("passwordDialogHTML").textContent.replace('{{ site }}', getDomain(currentURL));
 
     console.log(event);
     console.debug(modalCss);
     event.target.browserWindow.activeTab.page.dispatchMessage("displayPasswordGenerator", {
-        modalCss: modalCss
+        modalCss: modalCss,
+        dialogHTML: dialogHTML
     });
+}
+
+function receiveMessage(event) {
+    console.debug(event);
+    if (event.name === "generatePassword") {
+        event.target.browserWindow.activeTab.page.dispatchMessage("receiveGeneratedPassword", {
+            generatedPassword: generatePassword(event)
+        });
+    }
 }
 
 console.log("hello there");
 console.log(safari);
 safari.application.addEventListener("command", performCommand, false);
-
+safari.application.addEventListener("message", receiveMessage, false);
