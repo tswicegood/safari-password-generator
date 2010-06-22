@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.1</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
@@ -47,7 +47,7 @@
 	<key>Description</key>
 	<string>Port of the Chrome Extension for generating random passwords</string>
 	<key>ExtensionInfoDictionaryVersion</key>
-	<string>1.0</string>
+	<string>0.1</string>
 	<key>Permissions</key>
 	<dict>
 		<key>Website Access</key>
