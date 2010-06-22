@@ -11,6 +11,9 @@ function handleMessage(event) {
 
 function receiveGeneratedPassword(event) {
     var input = document.getElementById("passwordDialog_generated");
+    // weird bug - I get a TypeError if I reference input.value on an <Enter>
+    // w/o first referencing the input var.
+    input;
     input.value = event.message.generatedPassword;
     input.select();
     document.execCommand("copy");
