@@ -2,8 +2,6 @@ var modal = false;
 var modalId = "passwordGeneratorModal";
 
 function handleMessage(event) {
-    console.debug('handleMessage called');
-    console.debug(event);
     if (event.name === "togglePasswordGeneratorModal") {
         togglePasswordGeneratorModal(event);
     } else if (event.name === "receiveGeneratedPassword") {
@@ -48,9 +46,7 @@ function showPasswordGeneratorModal(event) {
     modal.innerHTML = event.message.dialogHTML;
     modal.children[1].style.marginTop = (window.innerHeight / 2 - 150) + "px";
 
-    console.debug("focusing");;
     var input = document.getElementById("passwordDialog_master");
-    console.debug(input);
     input.focus();
     var form = document.getElementById('passwordForm');
     form.onsubmit = function() {

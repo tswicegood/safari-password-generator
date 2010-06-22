@@ -129,20 +129,15 @@ function generatePassword(event) {
 // END CODE BORROWED FROM Password Generator
 
 function performCommand(event) {
-    console.debug('performCommand called');
     if (event.command !== "showGenerateRandomPassword") {
-        console.debug('not the correct command');
         return;
     }
 
     var currentURL = event.target.browserWindow.activeTab.url;
-    console.debug(currentURL);
 
     var modalCss = document.getElementById("passwordDialogCSS").textContent;
     var dialogHTML = document.getElementById("passwordDialogHTML").textContent.replace('{{ site }}', getDomain(currentURL));
 
-    console.log(event);
-    console.debug(modalCss);
     event.target.browserWindow.activeTab.page.dispatchMessage("togglePasswordGeneratorModal", {
         modalCss: modalCss,
         dialogHTML: dialogHTML
@@ -150,7 +145,6 @@ function performCommand(event) {
 }
 
 function receiveMessage(event) {
-    console.debug(event);
     if (event.name === "generatePassword") {
         event.target.browserWindow.activeTab.page.dispatchMessage("receiveGeneratedPassword", {
             generatedPassword: generatePassword(event)
@@ -158,7 +152,5 @@ function receiveMessage(event) {
     }
 }
 
-console.log("hello there");
-console.log(safari);
 safari.application.addEventListener("command", performCommand, false);
 safari.application.addEventListener("message", receiveMessage, false);
