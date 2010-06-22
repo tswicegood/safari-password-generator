@@ -4,8 +4,8 @@ var modalId = "passwordGeneratorModal";
 function handleMessage(event) {
     console.debug('handleMessage called');
     console.debug(event);
-    if (event.name === "displayPasswordGenerator") {
-        displayPasswordGenerator(event);
+    if (event.name === "togglePasswordGeneratorModal") {
+        togglePasswordGeneratorModal(event);
     } else if (event.name === "receiveGeneratedPassword") {
         receiveGeneratedPassword(event);
     }
@@ -18,17 +18,31 @@ function receiveGeneratedPassword(event) {
     document.execCommand("copy");
 }
 
-function displayPasswordGenerator(event) {
+function togglePasswordGeneratorModal(event) {
     if (modal !== false) {
-        document.body.removeChild(modal);
-        modal = false;
-        return;
+        hidePasswordGeneratorModal();
+    } else {
+        showPasswordGeneratorModal(event);
     }
+}
 
+function hidePasswordGeneratorModal() {
+    document.body.removeChild(modal);
+    modal = false;
+    return;
+}
+
+function showPasswordGeneratorModal(event) {
     displayState = true;
 
     modal = document.createElement('div');
+    modal.id = "modalDialogBackground";
     modal.style.cssText = "width:" + window.innerWidth + "px;height:" + window.innerHeight + "px; " + event.message.modalCss;
+    modal.onclick = function(event) {
+        if (event.target.id === "modalDialogBackground") {
+            hidePasswordGeneratorModal();
+        }
+    };
     document.body.appendChild(modal);
 
     modal.innerHTML = event.message.dialogHTML;

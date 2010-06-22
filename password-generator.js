@@ -143,7 +143,7 @@ function performCommand(event) {
 
     console.log(event);
     console.debug(modalCss);
-    event.target.browserWindow.activeTab.page.dispatchMessage("displayPasswordGenerator", {
+    event.target.browserWindow.activeTab.page.dispatchMessage("togglePasswordGeneratorModal", {
         modalCss: modalCss,
         dialogHTML: dialogHTML
     });
