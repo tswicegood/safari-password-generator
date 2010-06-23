@@ -25,7 +25,7 @@ This only needs to be done once.
 
 Need Help or Got Ideas?
 -----------------------
-Best bet is to visit `Get Satisfaction`_ to post your ideas there or vote up
+Best bet is to visit `issues`_ to post your ideas there or vote up
 similar ideas.
 
 
@@ -49,5 +49,5 @@ This uses a lock icon from the amazing `Gylpish`_ icon set.
 .. _Gylpish: http://glyphish.com/
 .. _releases/: http://github.com/tswicegood/safari-password-generator/tree/master/releases/
 .. _GitHub Downloads: http://github.com/tswicegood/safari-password-generator/downloads
-.. _Get Satisfaction: http://getsatisfaction.com/domain51/products/domain51_password_generator_for_safari
+.. _issues: http://github.com/tswicegood/safari-password-generator/issues
 
